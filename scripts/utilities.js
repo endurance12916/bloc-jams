@@ -1,7 +1,5 @@
-
-
-function forEach(element) {
-    for (let i=0; i<this.length; i++) {
-        this[i].element;
-    }
-};
+let  forEach  =   function (array,  callback)  {        
+    for  (let  i = 0;  i < array.length;  i++)  {
+        callback(i);
+    };    
+}
