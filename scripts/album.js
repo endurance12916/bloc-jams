@@ -140,15 +140,19 @@ let setCurrentAlbum = function (album) {
 };
 
 let findParentByClassName = function (element, targetName) {
-    if (element.parentElement==null){return console.log('No parent found')}
-    else {
-    while (element.className != targetName) {
-       // console.log(element.className);
-        element = element.parentElement;
+    if (element.parentElement == null) {
+        return console.log('No parent found')
+    } else {
+        while (element.className != targetName) {
+            // console.log(element.className);
+            element = element.parentElement;
+        }
+        console.log(element);
+        if (element.parentElement == null) {
+            return console.log('No parent found with that class name')
+        }
+        return element;
     }
-    console.log(element);
-    if (element.parentElement == null) {return console.log('No parent found with that class name')}
-    return element;}
 };
 
 let getSongItem = function (element) {
@@ -158,13 +162,13 @@ let getSongItem = function (element) {
             console.log(element);
             break;
         case 'album-view-song-item':
-        console.log(element.children[0]);
+            console.log(element.children[0]);
             element = element.children[0];
             console.log(element);
             break;
         case 'song-item-title':
         case 'song-item-duration':
-        console.log(element.parentElement.children[0]);
+            console.log(element.parentElement.children[0]);
             element = element.parentElement.children[0];
             console.log(element);
             break;
@@ -213,12 +217,12 @@ window.onload = function () {
         // Only target individual song rows during event delegation
         if (event.target.parentElement.className === 'album-view-song-item') {
             // Change the content from the number to the play button's HTML
-                        let songItem = getSongItem(event.target);
+            let songItem = getSongItem(event.target);
             let songItemNumber = songItem.getAttribute('data-song-number');
 
             // #2
             if (songItemNumber !== currentlyPlayingSong) {
-            event.target.parentElement.querySelector('.song-item-number').innerHTML = playButtonTemplate;
+                event.target.parentElement.querySelector('.song-item-number').innerHTML = playButtonTemplate;
             }
         }
     });
