@@ -213,7 +213,13 @@ window.onload = function () {
         // Only target individual song rows during event delegation
         if (event.target.parentElement.className === 'album-view-song-item') {
             // Change the content from the number to the play button's HTML
+                        let songItem = getSongItem(event.target);
+            let songItemNumber = songItem.getAttribute('data-song-number');
+
+            // #2
+            if (songItemNumber !== currentlyPlayingSong) {
             event.target.parentElement.querySelector('.song-item-number').innerHTML = playButtonTemplate;
+            }
         }
     });
 
