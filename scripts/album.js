@@ -159,32 +159,32 @@ let getSongItem = function (element) {
     switch (element.className) {
         case 'song-item-number':
             element;
-            console.log(element);
+            // console.log(element);
             break;
         case 'album-view-song-item':
-            console.log(element.children[0]);
+            // console.log(element.children[0]);
             element = element.children[0];
-            console.log(element);
+            // console.log(element);
             break;
         case 'song-item-title':
         case 'song-item-duration':
-            console.log(element.parentElement.children[0]);
+            // console.log(element.parentElement.children[0]);
             element = element.parentElement.children[0];
-            console.log(element);
+            // console.log(element);
             break;
         default:
-            console.log(element);
+            // console.log(element);
             element = element = findParentByClassName(element, 'song-item-number');
-            console.log(element);
+            // console.log(element);
     }
-    console.log(element);
+    // console.log(element);
     return element;
 };
 
 let clickHandler = function (targetElement) {
-    console.log(targetElement);
+    // console.log(targetElement);
     let songItem = getSongItem(targetElement);
-    console.log(songItem);
+    // console.log(songItem);
 
     if (currentlyPlayingSong === null) {
         songItem.innerHTML = pauseButtonTemplate;
